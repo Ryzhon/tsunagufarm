@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'comments/comments.css' %}">
+    <link rel="stylesheet" href="{% static 'comments/forum.css' %}"> -->
+
+    <title>{% block title %}TsunaguFarm{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- 他のスタイルやスクリプトをここに追加可能 -->
+</head>
+<body>
+    <!-- ヘッダー部分 -->
+    {% include "partials/header.html" %}
+
+    <!-- コンテンツ部分 -->
+    <main>
+        {% block content %}
+        <!-- この部分は各テンプレートによって上書きされます -->
+        {% endblock %}
+    </main>
+
+    <!-- フッター部分 -->
+    {% include "partials/footer.html" %}
+</body>
+</html>

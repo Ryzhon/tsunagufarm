@@ -1,0 +1,122 @@
+/* 基本の設定 */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    overflow: auto;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+    border-radius: 5px;
+    padding-bottom:85px;
+}
+
+.recipe-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.recipe-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.recipe-meta span {
+    display: block;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.recipe-content {
+    margin-bottom: 40px;
+}
+
+.recipe-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;    /* 画像をブロック要素として扱う */
+    margin-left: auto; /* 左側のマージンを自動に */
+    margin-right: auto; /* 右側のマージンを自動に */
+    max-width: 100%;  /* 画像がコンテナより大きくならないように */
+    height: auto;     /* 高さを自動に */
+    border-radius: 5px;
+}
+
+.recipe-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.tag {
+    background-color: #f36f6f;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    display: inline-block;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.comment-date {
+    display: block;
+    font-size: 0.8em;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px; /* 必要に応じて調整 */
+}
+
+button {
+    background-color: #76f871;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: auto;  /* これを追加 */
+    display: block;  
+}
+
+button:hover {
+    background-color: #f25555;
+}
+
+.comment-textarea {
+    width: 100%;      /* 必要に応じて幅を変更 */
+    max-width: 400px; /* 必要に応じて最大幅を変更 */
+    height: 85px;    /* 必要に応じて高さを変更 */
+    padding: 10px;    /* テキストエリア内のパディングを追加 */
+    border-radius: 5px; /* 角を丸くする */
+    border: 1px solid #ccc; /* ボーダーを追加 */
+    font-size: 14px;  /* 必要に応じてフォントサイズを変更 */
+    margin-bottom: 10px;
+}

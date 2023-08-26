@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %} 
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}">
+<div id="content-main">
+    <h1>ログイン</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <p>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </p>
+        
+        <p>
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </p>
+        
+        <div class="submit-row">
+            <input type="submit" value="ログイン" class="default">
+        </div>
+    </form>
+    <p>アカウントをお持ちでない場合、<a href="{% url 'register' %}">こちらから登録</a>してください。</p>
+</div>
+{% endblock %}

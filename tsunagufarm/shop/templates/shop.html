@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <title>{{ shop.name }}のレシピ</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/shop/shop.css' %}">
+</head>
+<body>
+    <div class="recipe-list">
+        {% for recipe in shop.recipes.all %}
+        <a href="{% url 'recipe_detail' recipe.id %}">
+            <div class="recipe">
+                <div class="recipe-content">
+                    <div class="recipe-details">
+                    <div class="recipe-image">
+                        <img src="{{ recipe.img.url }}" alt="{{ recipe.title }}">
+                    </div>
+                    <div class="recipe-info">
+                        <h2>{{ recipe.title }}</h2>
+                        <!--
+                            レシピのコンテンツを付ける
+                            <p>{{ recipe.content }}</p>
+                        -->
+                        <ul class="tag-list">
+                            {% for tag in recipe.tags.all %}
+                                <li>作物:{{ tag.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</body>
+
+{% endblock %}

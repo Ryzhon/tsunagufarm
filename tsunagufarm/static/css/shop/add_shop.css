@@ -1,0 +1,54 @@
+#map {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.shop-form {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;          /* この行を追加 */
+    flex-direction: column; /* この行を追加 */
+    margin-bottom: 80px; /* フォームとフッターの間隔 */
+}
+
+.shop-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+}
+
+.required {
+    color: red;
+}
+
+.shop-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 330px; /* ラベルの幅を調整 */
+}
+
+.shop-input.readonly {
+    background-color: #e9e9e9;
+}
+
+.shop-btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.shop-btn:hover {
+    background-color: #0056b3; /* ボタンのhover時の色 */
+}

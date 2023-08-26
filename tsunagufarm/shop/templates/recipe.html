@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block additional_styles %}
+{% endblock %}
+{% block content %}
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static 'css/shop/list_styles.css' %}">
+<!-- 
+    <div class="post block">
+        <h1 class="subtitle">
+            {{recipe.title}}
+        </h1>
+        <p>{{recipe.content}}</p>
+        <p>{{recipe.tags}}</p>
+        <p>{{recipe.created_by}}</p>
+        <p>{{recipe.content}}</p>
+        <a href="{% url 'recipe_detail' recipe.id %}">詳細</a>
+        <hr />
+    </div> -->
+    <ul class="shop-list">
+        {% for recipe in recipes %}
+            <li class="shop-item">
+                <a href="{% url 'single_shop' shop_id=shop.id %}">
+                    <h2>{{ shop.name }}</h2>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

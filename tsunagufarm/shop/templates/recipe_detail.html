@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block additional_styles %}
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/shop/recipe_detail.css' %}">
+
+<div class="container">
+    <div class="recipe-header">
+        <h1>{{ recipe.title }}</h1>
+        <div class="recipe-meta">
+            <span>Written by {{ recipe.created_by }}</span>
+            <span>Shop: {{ recipe.shop.name }}</span>
+        </div>
+    </div>
+
+    <div class="recipe-content">
+        {% if recipe.img %}
+            <img src="{{ recipe.img.url }}" class="recipe-image">
+        {% endif %}
+        
+        <p>{{ recipe.content }}</p>
+    </div>
+
+    <!-- <div class="recipe-footer">
+        <div class="recipe-tags">
+            {% for tag in recipe.tags.all %}
+                <span class="tag">{{ tag.name }}</span>
+            {% endfor %}
+        </div>
+    </div> -->
+
+    <h3>応援コメント:</h3>
+<ul>
+    {% for comment in comments %}
+        <li>
+            <strong>{{ comment.user.username }}</strong>: {{ comment.text }}
+            <span class="comment-date">{{ comment.created_at|date:"d M Y" }}</span>
+        </li>
+    {% endfor %}
+</ul>
+
+<!-- コメントのフォーム -->
+<h3>応援コメントをする</h3>
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="form-group">
+        {{ form.text.label_tag }}
+        <textarea class="comment-textarea" name="{{ form.text.name }}">{% if form.text.value == "None" %}{{ form.text.value }}{% endif %}</textarea>
+    </div>
+    
+    <button type="submit">コメント</button>
+</form>
+</div>
+
+{% endblock %}

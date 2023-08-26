@@ -1,0 +1,14 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div id="sp-fixed-menu" class="for-sp">
+  <ul>
+    <li><a href="{% url 'map'%}"><i class="material-icons">search</i>近くの農家</a></li>
+    <li>
+        <a href="{% url 'purchase' %}"><i class="material-icons">volunteer_activism</i>つながる</a>
+        <!-- <span class="disabled-link"><i class="material-icons">volunteer_activism</i>つながる</span> -->
+    </li>
+    <li><a href="{% url 'user_with_shop'%}"><i class="material-icons">handshake</i>つながった農家</a></li>
+    <li><a href="{% url 'others'%}"><i class="material-icons">more_horiz</i>その他</a></li>
+  </ul>
+</div>

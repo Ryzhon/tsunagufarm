@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/shop/purchase.css' %}">
+<div class="container">
+  <hr/>
+  <h1><img src="{{ product_image.url }}" class="img_size"></h1>
+  <h2>{{ product_name }}</h2>
+
+  <div class="cp_ipselect cp_sl04">
+    <form id="myForm" action="purchase_after.html" method="get">
+    <select id="selectBox" name="choice" required>
+      <option value="" hidden>数を選択してください</option>
+      <option value="1"> 1 </option>
+      <option value="2"> 2 </option>
+      <option value="3"> 3 </option>
+      <option value="4"> 4 </option>
+      <option value="5"> 5 </option>
+      <option value="6"> 6 </option>
+      <option value="7"> 7 </option>
+      <option value="8"> 8 </option>
+      <option value="9"> 9 </option>
+      <option value="10"> 10 </option>
+    </select>
+    </div>
+
+    <div class="button-container">
+     <a href="{% url 'purchase_after' %}" class="button">購入する</a>
+    </div>
+    </form>
+  </script>
+
+    
+
+{% endblock content %}
+
+

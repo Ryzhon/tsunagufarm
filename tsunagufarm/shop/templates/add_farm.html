@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<script src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&callback=initMap" async defer></script> 
+<link rel="stylesheet" type="text/css" href="{% static 'css/shop/add_shop.css' %}">
+
+<!-- ↑上記URLのYOUR_API_KEYには取得したAPIキーを入力してください -->
+
+<script>
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 35.6895, lng: 139.6917 },  // 東京を初期地点として設定
+            zoom: 10,
+        });
+
+        google.maps.event.addListener(map, 'click', function(event) {
+            const latitude = event.latLng.lat();
+            const longitude = event.latLng.lng();
+
+            document.getElementById('id_latitude').value = latitude;
+            document.getElementById('id_longitude').value = longitude;
+        });
+    }
+
+    window.onload = initMap;
+</script>
+
+<div id="map" style="width:100%;height:400px;margin-bottom:20px;"></div> 
+
+<form method="post" action="." class="shop-form">
+    {% csrf_token %}
+    <p>
+        <label for="id_name" class="shop-label">店舗名:<span class="required">*</span></label>
+        <input type="text" name="name" id="id_name" required class="shop-input">
+    </p>
+    <p>
+        <label for="id_name" class="shop-label">画像:</label>
+        <input type="file" name="img" id="id_img" accept="*">
+    </p>
+    <p>
+        <label for="id_latitude" class="shop-label">Latitude:</label>
+        <input type="text" name="latitude" id="id_latitude" readonly class="shop-input readonly">
+    </p>
+    <p>
+        <label for="id_longitude" class="shop-label">Longitude:</label>
+        <input type="text" name="longitude" id="id_longitude" readonly class="shop-input readonly">
+    </p>
+    <p>
+        <input type="submit" value="店舗作成" class="shop-btn">
+    </p>
+</form>
+{% endblock %}
